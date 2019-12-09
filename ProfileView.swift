@@ -97,14 +97,14 @@ class ProfileView : UIView {
         let size = CGSize(width: mainSubview.frame.width * 0.85, height: mainSubview.frame.height - seperatorView.frame.maxY - 40)
         let origin = CGPoint(x: (mainSubview.frame.width-size.width)/2, y: seperatorView.frame.maxY+25)
         
-        segmentationView = SegementationView(frame: CGRect(origin: origin, size: size), buttonIcon: [UIImage(named: "qbar"), UIImage(named: "chat"), UIImage(named: "add")])
+        segmentationView = SegementationView(frame: CGRect(origin: origin, size: size), buttonIcon: [UIImage(named: "person"), UIImage(named: "group"), UIImage(named: "notificationn"), UIImage(named: "qbar")])
         segmentationView.layer.cornerRadius = 8
         mainSubview.addSubview(segmentationView)
         
     }
     
     func initDismissLabel() {
-        let size = CGSize(width: 30, height: 30)
+        let size = CGSize(width: 25, height: 25)
         let origin = CGPoint(x: UIScreen.main.bounds.width - size.width - 20, y: 25)
         
         dismissLabel = UILabel(frame: CGRect(origin: origin, size: size))
