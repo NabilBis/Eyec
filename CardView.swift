@@ -13,6 +13,7 @@ import UIKit
 class CardView : UIView {
     private var titleLabel = UILabel()
     private var descriptionLabel = UILabel()
+    private var seperatorView = UIView()
     
     init(){
         super.init(frame: CGRect())
@@ -27,6 +28,7 @@ class CardView : UIView {
         
         initTitleLabel(titleTxt)
         initDescriptionLabel(descTxt)
+        initSeperatorView()
     }
     
     func initTitleLabel(_ txt: String){
@@ -49,12 +51,26 @@ class CardView : UIView {
         descriptionLabel.text = txt
         descriptionLabel.numberOfLines = 0
         descriptionLabel.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: UIFont.systemFontSize)!
-        descriptionLabel.textColor = UIColor(red: 0.7216, green: 0.7294, blue: 0.7216, alpha: 1.0)
+        descriptionLabel.textColor = UIColor(red: 0.4157, green: 0.3725, blue: 0.6588, alpha: 1.0)
         descriptionLabel.textAlignment = .left
         descriptionLabel.sizeToFit()
         
         descriptionLabel.frame  = CGRect(origin: origin, size: descriptionLabel.frame.size)
         self.addSubview(descriptionLabel)
+    }
+    
+    func initSeperatorView(){
+        
+        let size = CGSize(width: frame.width * 0.6, height: 2)
+        let origin = CGPoint(x: (frame.width - size.width)/2, y: frame.height - 40)
+        
+        seperatorView.frame = CGRect(origin: origin, size: size)
+
+        seperatorView.layer.cornerRadius = 5
+
+        seperatorView.backgroundColor = UIColor(red: 0.3961, green: 0.5373, blue: 0.698, alpha: 1.0)
+        self.addSubview(seperatorView)
+//        seperatorView.addShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {

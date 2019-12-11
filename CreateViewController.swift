@@ -13,8 +13,8 @@ class CreateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let t = [("Living room", "3 family members have\n access"), ("Bed room", "3 family members have\n access"), ("Guest room", "3 family members have\n access")]
-        let createView = CreateView(frame: self.view.bounds, mainText: "Create your story", touples: t)
+        let t = [("Invitation", "Make sure only guests\n get in"), ("Message", "Leave a message"), ("Attendance", "Create a ")]
+        let createView = CreateView(frame: self.view.bounds, mainText: "Give a meaning to an image", touples: t)
         
         self.view.addSubview(createView)
         // Do any additional setup after loading the view.

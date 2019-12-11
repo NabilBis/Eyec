@@ -91,11 +91,25 @@ class SegementationView : UIView{
         img.image = image
         img.layer.masksToBounds = true
         img.layer.cornerRadius = butSize.width/2
-        img.layer.borderWidth = 1
+//        img.layer.borderWidth = 1
         img.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(butTapped(_:))))
         img.backgroundColor = .white
         
+        //////// Shadow
+//        let shadowView = UIView(frame: img.frame)
+//        
+//        shadowView.layer.backgroundColor = UIColor.black.cgColor
+//        shadowView.layer.shadowColor = UIColor.white.cgColor
+//        shadowView.layer.shadowOffset = CGSize(width: 6, height: 1.0)
+//        shadowView.layer.shadowOpacity = 0.4
+//        shadowView.layer.shadowRadius = 4.0
+//        shadowView.layer.masksToBounds = false
+//        shadowView.layer.cornerRadius = img.layer.cornerRadius
+        
+//        portionView.addSubview(shadowView)
+        
         portionView.addSubview(img)
+        img.addShadow(color: .white)
         return img
     }
     
