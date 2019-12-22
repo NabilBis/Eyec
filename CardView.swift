@@ -14,6 +14,7 @@ class CardView : UIView {
     private var titleLabel = UILabel()
     private var descriptionLabel = UILabel()
     private var seperatorView = UIView()
+    public var iconView = UIImageView()
     
     init(){
         super.init(frame: CGRect())
@@ -29,9 +30,10 @@ class CardView : UIView {
         initTitleLabel(titleTxt)
         initDescriptionLabel(descTxt)
         initSeperatorView()
+        initIconView(image: UIImage(named: "camera")!)
     }
     
-    func initTitleLabel(_ txt: String){
+    private func initTitleLabel(_ txt: String){
         let origin = CGPoint(x: 10, y: 10)
         
         titleLabel.text = txt
@@ -45,7 +47,7 @@ class CardView : UIView {
         self.addSubview(titleLabel)
     }
     
-    func initDescriptionLabel(_ txt: String){
+    private func initDescriptionLabel(_ txt: String){
         let origin = CGPoint(x: titleLabel.frame.origin.x, y: titleLabel.frame.maxY + 15)
         
         descriptionLabel.text = txt
@@ -59,7 +61,7 @@ class CardView : UIView {
         self.addSubview(descriptionLabel)
     }
     
-    func initSeperatorView(){
+    private func initSeperatorView(){
         
         let size = CGSize(width: frame.width * 0.6, height: 2)
         let origin = CGPoint(x: (frame.width - size.width)/2, y: frame.height - 40)
@@ -70,7 +72,18 @@ class CardView : UIView {
 
         seperatorView.backgroundColor = UIColor(red: 0.3961, green: 0.5373, blue: 0.698, alpha: 1.0)
         self.addSubview(seperatorView)
-//        seperatorView.addShadow()
+    }
+    
+    private func initIconView(image: UIImage)
+    {
+        let ww = frame.height - seperatorView.frame.maxY
+        let size = CGSize(width: ww * 0.7, height: ww * 0.7)
+        let origin = CGPoint(x: (frame.width - size.width)/2, y: seperatorView.frame.maxY + ww*0.15 )
+        
+        iconView.frame = CGRect(origin: origin, size: size)
+        iconView.image = image.withRenderingMode(.alwaysTemplate)
+        iconView.tintColor = UIColor(red: 0.1608, green: 0.4235, blue: 0.6, alpha: 1.0)
+        self.addSubview(iconView)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -10,12 +10,12 @@ import UIKit
 
 class SwitchViewController: UIViewController {
 
-    public var firstViewController: UIViewController!
-    public var secondViewController: UIViewController!
-    public var thirdViewController: UIViewController!{
+    public var chatViewController : UIViewController!
+    public var createViewController: UIViewController!
+    public var defaultViewController : UIViewController!{
         didSet {
-            addChildViewController(thirdViewController)
-            view.insertSubview(thirdViewController.view, at: 0)
+            addChildViewController(defaultViewController)
+            view.insertSubview(defaultViewController.view, at: 0)
         }
     }
 
@@ -25,19 +25,20 @@ class SwitchViewController: UIViewController {
         super.viewDidLoad()
         
         if let storyboard = self.storyboard {
-            firstViewController = storyboard.instantiateViewController(withIdentifier: "FirstView")
-            secondViewController = storyboard.instantiateViewController(withIdentifier: "SecondView")
-            thirdViewController = storyboard.instantiateViewController(withIdentifier: "ThirdView")
+            defaultViewController = storyboard.instantiateViewController(withIdentifier: "DefaultView")
+            createViewController = storyboard.instantiateViewController(withIdentifier: "CreateView")
+            chatViewController = storyboard.instantiateViewController(withIdentifier: "ChatView")
         }
         
         ////////////////////
-        let ico : [UIImage] = [UIImage(named: "qbar")!, UIImage(named: "chat")!, UIImage(named: "add")!]
+        let tabViewIcons : [UIImage] = [UIImage(named: "chat")!, UIImage(named: "qbar")!, UIImage(named: "add")!]
         let rect = CGRect(x: 0, y: UIScreen.main.bounds.height-50, width: view.frame.width, height: 50)
-        let vv = TabBarView(frame: rect, cordinatorController: self, icons: ico)
-            vv.backgroundColor = UIColor(red: 0.8392, green: 0.8118, blue: 0.7882, alpha: 1.0)
-            vv.animationViewColor = UIColor(red: 0.5176, green: 0.4, blue: 0.502, alpha: 1.0)
+        let tabView = TabBarView(frame: rect, cordinatorController: self, icons: tabViewIcons)
         
-        view.addSubview(vv)
+           tabView.backgroundColor = UIColor(red: 0.8392, green: 0.8118, blue: 0.7882, alpha: 1.0)
+           tabView.animationViewColor = UIColor(red: 0.5176, green: 0.4, blue: 0.502, alpha: 1.0)
+        
+        view.addSubview(tabView)
     }
 
     
@@ -54,7 +55,7 @@ class SwitchViewController: UIViewController {
 extension SwitchViewController: TabBarViewProtocol {
     
     func cordinatorViewControllers() -> [UIViewController] {
-        return [ thirdViewController, firstViewController, secondViewController]
+        return [chatViewController, defaultViewController,  createViewController]
     }
     
     func doYourThing(_ params: [Any]?) {

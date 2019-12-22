@@ -19,12 +19,11 @@ class ProfileView : UIView {
     public var localizationIcon = UIView()
     public var seperatorView = UIView()
     public var segmentationView  : SegementationView!
-    private var dismissLabel : UILabel!
+    public var dismissLabel : UILabel!
     
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .black
         initMainSubview()
         initProfileView()
         initNameLabel()
@@ -34,7 +33,7 @@ class ProfileView : UIView {
         initDismissLabel()
     }
     
-    func initMainSubview(){
+    private func initMainSubview(){
         let size = CGSize(width: self.bounds.width * 0.9, height: self.bounds.height * 0.8)
         let origin = CGPoint(x: (self.bounds.width - size.width)/2, y: self.bounds.height - size.height - 10)
         
@@ -45,7 +44,7 @@ class ProfileView : UIView {
         self.addSubview(mainSubview)
     }
     
-    func initProfileView(){
+    private func initProfileView(){
         let size = CGSize(width: mainSubview.bounds.width/3, height: mainSubview.bounds.width/3)
         let origin = CGPoint(x: mainSubview.bounds.midX - size.width/2, y: -(size.height/2))
         
@@ -56,7 +55,7 @@ class ProfileView : UIView {
         mainSubview.addSubview(profileView)
     }
     
-    func initNameLabel(){
+    private func initNameLabel(){
         nameLabel.text = "Devon Carlson"
         nameLabel.textAlignment = .center
         nameLabel.sizeToFit()
@@ -65,7 +64,7 @@ class ProfileView : UIView {
         mainSubview.addSubview(nameLabel)
     }
    
-    func initLocalizationLabel(){
+    private func initLocalizationLabel(){
         
         localizationLabel.text = "Kyoto, Japan"
         localizationLabel.textAlignment = .center
@@ -83,7 +82,7 @@ class ProfileView : UIView {
         mainSubview.addSubview(localizationIcon)
     }
     
-    func initSeperatorView() {
+    private func initSeperatorView() {
         let size = CGSize(width: mainSubview.frame.width * 0.6, height: 1)
         let origin = CGPoint(x: (mainSubview.frame.width-size.width)/2, y: localizationLabel.frame.maxY + 25)
         
@@ -93,7 +92,7 @@ class ProfileView : UIView {
         mainSubview.addSubview(seperatorView)
     }
     
-    func initSegmentationView(){
+    private func initSegmentationView(){
         let size = CGSize(width: mainSubview.frame.width * 0.85, height: mainSubview.frame.height - seperatorView.frame.maxY - 40)
         let origin = CGPoint(x: (mainSubview.frame.width-size.width)/2, y: seperatorView.frame.maxY+25)
         
@@ -103,7 +102,7 @@ class ProfileView : UIView {
         
     }
     
-    func initDismissLabel() {
+    private func initDismissLabel() {
         let size = CGSize(width: 25, height: 25)
         let origin = CGPoint(x: UIScreen.main.bounds.width - size.width - 20, y: 25)
         
@@ -111,7 +110,7 @@ class ProfileView : UIView {
         dismissLabel.text = "X"
         dismissLabel.textColor = .white
         dismissLabel.textAlignment = .center
-        
+        dismissLabel.isUserInteractionEnabled = true
         dismissLabel.layer.cornerRadius = size.width/2
         dismissLabel.layer.borderColor = UIColor.white.cgColor
         dismissLabel.layer.borderWidth = 1

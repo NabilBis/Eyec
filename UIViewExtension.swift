@@ -11,7 +11,8 @@ import UIKit
 
 extension UIView {
     
-    func addShadow(color: UIColor = .black){
+    func addShadow(color: UIColor = .black)
+    {
         let shadowView = UIView()
         
         shadowView.frame = frame
@@ -28,5 +29,14 @@ extension UIView {
         if let superView = superview {
             superView.insertSubview(shadowView, at: 0)
         }
+    }
+    
+    func addBlurEffect()
+    {
+        let blurEffect = UIBlurEffect(style: .light)
+        
+        let blurView = UIVisualEffectView(effect: blurEffect)
+           blurView.frame = self.bounds
+        self.insertSubview(blurView, at: 0)
     }
 }

@@ -15,18 +15,19 @@ class CreateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let t = [("Invitation", "Make sure only guests\n get in"), ("Message", "Leave a message"), ("Attendance", "Create a ")]
-//        let createView = CreateView(frame: self.view.bounds, mainText: "Give a meaning to an image", touples: t)
-//        
-//        self.view.addSubview(createView)
+        let t = [("Invitation", "Make sure only guests\n get in"), ("Message", "Leave a message"), ("Attendance", "Create a ")]
+        let createView = CreateView(frame: self.view.bounds, mainText: "Give a meaning to your image", touples: t)
+        
+        self.view.addSubview(createView)
         
         
-        let size = CGSize(width: UIScreen.main.bounds.width * 0.7, height: 40)
+       /* let size = CGSize(width: UIScreen.main.bounds.width * 0.7, height: 40)
         let origin = CGPoint(x: (UIScreen.main.bounds.width - size.width)/2, y: 44/*(UIScreen.main.bounds.height - size.height)/2*/)
         
         hintView = HintSearchBarView(frame: CGRect(origin: origin, size: size), textFieldDelegate: self)
         hintView.layer.cornerRadius = 4
         self.view.addSubview(hintView)
+        */
     }
     
     

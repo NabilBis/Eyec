@@ -13,8 +13,16 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let proView = ProfileView(frame: view.bounds)
+        
+        proView.dismissLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissGesture)))
         view.addSubview(proView)
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .clear
+        view.addBlurEffect()
+//        proView.backgroundColor = UIColor.blue.withAlphaComponent(0.2)
+//        print("-----\(self.modalPresentationStyle)")
     }
 
+    @objc func dismissGesture(){
+        dismiss(animated: true, completion: nil)
+    }
 }

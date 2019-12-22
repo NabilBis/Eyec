@@ -44,7 +44,7 @@ class ScanView: UIView {
     }
     
     func initScanAction() {
-        scanActionLabel.text = "Scan To Tell"
+        scanActionLabel.text = "Press To Tell"
         scanActionLabel.font = UIFont(name: "ArialHebrew-Bold", size: 11)
         scanActionLabel.textAlignment = .center
         scanActionLabel.textColor = UIColor(red: 0.5176, green: 0.5137, blue: 0.5176, alpha: 1.0)
@@ -62,7 +62,6 @@ class ScanView: UIView {
         textLabel.font = UIFont(name: "Avenir-Heavy", size: 19)!
         textLabel.textColor = UIColor(red: 0.3529, green: 0.3569, blue: 0.3529, alpha: 1.0)
         textLabel.numberOfLines = 0
-//        textLabel.lineBreakMode = .byTruncatingTail
         textLabel.textAlignment = .center
         textLabel.sizeToFit()
         textLabel.frame.origin = CGPoint(x: UIScreen.main.bounds.width/2 - textLabel.frame.width/2, y: UIScreen.main.bounds.height/5)

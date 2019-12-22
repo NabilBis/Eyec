@@ -32,20 +32,20 @@ class TabBarView : UIView {
     }
     
     
-    
-    
     init(frame: CGRect,cordinatorController: TabBarViewProtocol, icons: [UIImage])
     {
         super.init(frame: frame)
         
         delegate = cordinatorController
-        viewControllers = cordinatorController.cordinatorViewControllers()
+        viewControllers = delegate.cordinatorViewControllers()
         buttonsCount = viewControllers.count
         tabBarButtons = [UIImageView].init(repeating: UIImageView(), count: buttonsCount!)
         
         fromToController = [UIViewController].init(repeating: UIViewController(), count: 2)
         
-        selectedViewController = viewControllers[0]
+        /////////// to change the selected vc
+        let si = 1
+        selectedViewController = viewControllers[si]
 
         buttonsIcons = icons
         
@@ -54,10 +54,10 @@ class TabBarView : UIView {
             self.addSubview(tabBarButtons[but])
         }
         
-        tabBarButtons[0].image = tabBarButtons[0].image?.withRenderingMode(.alwaysTemplate)
-        tabBarButtons[0].tintColor = UIColor.white
+        tabBarButtons[si].image = tabBarButtons[si].image?.withRenderingMode(.alwaysTemplate)
+        tabBarButtons[si].tintColor = UIColor.white
         
-        animationView = UIView(frame: CGRect(origin: CGPoint(x:tabBarButtons[0].frame.origin.x-8, y:tabBarButtons[0].frame.origin.y-8), size: CGSize(width: tabBarButtons[0].frame.width+16, height: tabBarButtons[0].frame.width+16)))
+        animationView = UIView(frame: CGRect(origin: CGPoint(x:tabBarButtons[si].frame.origin.x-8, y:tabBarButtons[si].frame.origin.y-8), size: CGSize(width: tabBarButtons[si].frame.width+16, height: tabBarButtons[si].frame.width+16)))
 
         animationView.backgroundColor = .yellow
         animationView.layer.cornerRadius = animationView.frame.width/2
@@ -65,9 +65,6 @@ class TabBarView : UIView {
         self.insertSubview(animationView, at: 0)
        
     }
-    
-    
-    
     
     
     func initImageButton(imageIndex at : Int) -> UIImageView {
@@ -89,7 +86,6 @@ class TabBarView : UIView {
         
         return imageButton
     }
-    
     
     
     

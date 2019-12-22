@@ -40,6 +40,9 @@ class HintSearchBarView : UIView {
         }
     }
     
+    
+    
+    
     init(frame: CGRect, textFieldDelegate: UITextFieldDelegate)
     {
         super.init(frame: frame)
@@ -80,6 +83,7 @@ class HintSearchBarView : UIView {
         let origin = CGPoint(x: textField.frame.origin.x, y: frame.height + 10)
         
         hintsViewContainer.frame = CGRect(origin: origin, size: size)
+        hintsViewContainer.layer.masksToBounds = true
         
         for i in 0 ..< data.count {
             let labelSize = CGSize(width: size.width, height: size.height / CGFloat(data.count))
